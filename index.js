@@ -27,3 +27,29 @@ port = 3000
 app.listen(port, () => {
   console.log(`OK connected to node server http://localhost:${port}  🤝 `)
 })
+
+// const food = {
+//   pizza: '🍕',
+//   pizzas: ['🍕', '🍕'],
+//   burger: '🍔',
+//   fries: '🍟',
+//   cake: '🎂'
+// }
+
+// for (key in food) {
+//   // if ('pizza' in key) {
+//   console.log(`${key}:${food[key]}`)
+//   // }
+// }
+// console.log(food.hasOwnProperty('pizza'))
+
+// var z = Object.keys(food)
+//   .filter(function (k) {
+//     return k.indexOf('pizza') == 0
+//   })
+//   .reduce(function (newData, k) {
+//     newData[k] = food[k]
+//     return newData
+//   }, {})
+
+// console.log(z)

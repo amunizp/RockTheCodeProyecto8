@@ -25,12 +25,25 @@ async function createUpdate(req, res, next) {
 async function updateUpdate(req, res, next) {
   try {
     const { id } = req.params
-    const updateUpdates = new Update(req.body)
-    updateUpdates._id = id
-    const updateToUpdate = await Update.findByIdAndUpdate(id, updateUpdates, {
+    console.log('req body is ', req.body)
+    const newUpdate = new Update(req.body)
+    newUpdate._id = id
+
+    if (req.file) {
+      newUpdate.img = req.files.img.path
+      console.log('found an image, linking it')
+    }
+    const updateToUpdate = await Update.findByIdAndUpdate(id, newUpdate, {
       new: true
     })
-
+    console.log(
+      'the update we are updating is: ',
+      newUpdate.description,
+      newUpdate._id,
+      newUpdate.img,
+      req.body
+    )
+    console.log('we updated the update', updateToUpdate)
     return res.status(200).json(updateToUpdate)
   } catch (error) {
     return res

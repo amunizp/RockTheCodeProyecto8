@@ -2,7 +2,7 @@ const { default: mongoose } = require('mongoose')
 
 const updateSchema = new mongoose.Schema(
   {
-    img: [{ type: String, required: false }],
+    img: { type: String, trim: true, required: false },
     description: { type: String, required: true }
   },
   {

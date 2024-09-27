@@ -2,9 +2,9 @@ const { default: mongoose } = require('mongoose')
 
 const reportSchema = new mongoose.Schema(
   {
-    img: [{ type: String, required: false }],
+    img: { type: String, trim: true, required: false },
     description: { type: String, required: true },
-    updates: [{ type: String, required: false }],
+    updates: [{ type: String, ref: 'updates', required: false }],
     resolved: { type: Boolean, required: true }
   },
   {
