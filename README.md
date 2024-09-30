@@ -37,10 +37,27 @@ Both the image and the updates fields are lists so we can add more than one with
 ```
 PUT http://localhost:3000/api/v1/reports/66ec32fd04f4f8f8f21e240e
 
-\\body
-{
+\\body-form
+
   "description": "I am updating",
-"img":["theURL to image", "another url to img"],
+"img": File-on-your-computer. ,
+"updates": "idnumber<here>"
   "resolved": false
-}
+
 ```
+
+This should update but append the update.
+
+```
+DELETE http://localhost:3000/api/v1/reports/66ec32fd04f4f8f8f21e240e
+```
+
+This will delete the data from the but also any image stored.
+
+### Creating updates with CRUD
+
+## Seed
+
+> npm run seed
+
+Will delete the current seed on the database and upload the saved seed in the repo.

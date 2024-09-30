@@ -9,6 +9,7 @@ mongoose
     const anyUpdate = await Update.findOne()
     if (!(anyUpdate === null)) {
       await Update.collection.drop()
+      console.log('I deleted the documents in the updates collection')
     } else {
       console.log('No Collection of Updates to drop')
     }

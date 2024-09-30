@@ -55,7 +55,13 @@ async function updateUpdate(req, res, next) {
 async function deleteUpdate(req, res, next) {
   try {
     const { id } = req.params
-    const updateDeleted = await Update.findByIdAndDelete(id)
+    const updateDeleted = await Update.findById(id)
+    if (!(updateDeleted.img === null || updateDeleted.img === undefined)) {
+      deleteImgCloudinary(updateDeleted.img)
+      console.log('I called to get the file deleted from cloudinary')
+    }
+    //only delete after we confirmed cloudinary storage was deleted
+    await Update.findByIdAndDelete(id)
     return res.status(200).json(updateDeleted)
   } catch (error) {
     return res
